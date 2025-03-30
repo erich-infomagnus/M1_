@@ -1,5 +1,9 @@
 name: "Main / Pull requests build"
 on:
+  issues:
+    types:
+      - opened
+#on:
 #    pull_request:
 #        paths-ignore:
 #            - '.txt'
