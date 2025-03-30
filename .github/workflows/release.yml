@@ -1,5 +1,9 @@
 name: "Release Pipeline"
 on:
+  issues:
+    types:
+      - opened
+#on:
 #  push:
 #    tags:
 #      - v*
