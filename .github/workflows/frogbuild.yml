@@ -1,16 +1,14 @@
 name: "JFrog Build"
 
-on:
-  push:
-    branches:
-      - main
+on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: JFrog Build 2
+      - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         env:
           # JFrog platform url (for example: https://acme.jfrog.io)
@@ -33,18 +31,16 @@ jobs:
           
           # Collect environment variables for the build
           jf rt bce
-          #jf docker pull trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest
-          #docker ps 
-          #echo 'this is '
-          #docker tag trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest trialj4xtng.jfrog.io/m1-local-docker-release/webgoat:latest
-          
-          #jf docker push trialj4xtng.jfrog.io/m1-local-docker-release/webgoat
-          jf mvn-config
-          jf mvn compile
+          #mock BUILD section
+          jf docker pull trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest
+          docker tag trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest trialj4xtng.jfrog.io/m1-local-docker-release/webgoat:latest
+          #PUSH to STAGING
+          jf docker push trialj4xtng.jfrog.io/m1-local-docker-release/webgoat
           # Collect VCS details from git and add them to the build
           jf rt bag
           # Publish build info
           jf rt bp
           # Build Scan
-          *jf build-scan
-      
+          jf build-scan
+          #TEST
+          #RELEASE
