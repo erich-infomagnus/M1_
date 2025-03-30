@@ -1,4 +1,4 @@
-name: "JFrog Build2"
+name: "JFrog Build"
 on: push
 
 jobs:
