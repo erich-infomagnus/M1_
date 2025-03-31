@@ -32,8 +32,8 @@ jobs:
           # Collect environment variables for the build
           jf rt bce
           #mock BUILD section
-          jf docker pull trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest
-          docker tag trialj4xtng.jfrog.io/m1-local-docker-ingress/webgoat:latest trialj4xtng.jfrog.io/m1-local-docker-release/webgoat:latest
+          jf docker pull infomagnus.jfrog.io/m1-docker-local-ingress/webgoat/webgoat:latest
+          docker tag infomagnus.jfrog.io/m1-docker-local-ingress/webgoat/webgoat:latest infomagnus.jfrog.io/m1-docker-local-release/webgoat:latest
           #PUSH to STAGING
           jf docker push trialj4xtng.jfrog.io/m1-local-docker-release/webgoat
           # Collect VCS details from git and add them to the build
