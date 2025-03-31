@@ -42,5 +42,5 @@ jobs:
           jf rt bp
           # Build Scan
           jf build-scan
-          #TEST
+          # TEST
           #RELEASE
