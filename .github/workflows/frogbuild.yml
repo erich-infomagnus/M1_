@@ -34,13 +34,13 @@ jobs:
           #mock BUILD section
           jf docker pull infomagnus.jfrog.io/m1-docker-local-ingress/webgoat/webgoat:latest
           docker tag infomagnus.jfrog.io/m1-docker-local-ingress/webgoat/webgoat:latest infomagnus.jfrog.io/m1-docker-local-release/webgoat:latest
+          jf docker scan infomagnus.jfrog.io/m1-docker-local-release/webgoat:latest
           #PUSH to STAGING
           jf docker push infomagnus.jfrog.io/m1-docker-local-release/webgoat
           # Collect VCS details from git and add them to the build
           jf rt bag
           # Publish build info
           jf rt bp
-          jf scan
           # Build Scan
           jf build-scan
           # TEST
